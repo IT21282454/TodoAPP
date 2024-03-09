@@ -1,0 +1,38 @@
+import React, { useState } from "react";
+import { PlusIcon } from "@heroicons/react/outline";
+import "./TodoInput.css";
+
+function TodoInput({ todos, setTodos }) {
+    const [todo, setTodo] = useState("");
+
+    const handleClick = () => {
+        const newTodo = {
+            id: 1,
+            name: todo,
+            isComplete: false,
+        };
+
+        const newTodos = [...todos, newTodo];
+        setTodos(newTodos);
+        setTodo("")
+    };
+
+    return (
+        <div className="todo-input-wrapper">
+            <input
+                type="text"
+                placeholder="Enter your todo..."
+                value={todo}
+                onChange={(event) => {
+                    setTodo(event.target.value);
+                }}
+            />
+
+            <button onClick={handleClick}>
+                <PlusIcon className="plus-icon" />
+            </button>
+        </div>
+    );
+}
+
+export default TodoInput;
