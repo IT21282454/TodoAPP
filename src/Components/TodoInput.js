@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { PlusIcon } from "@heroicons/react/outline";
+import {v4} from "uuid"
 import "./TodoInput.css";
 
 function TodoInput({ todos, setTodos }) {
@@ -7,7 +8,7 @@ function TodoInput({ todos, setTodos }) {
 
     const handleClick = () => {
         const newTodo = {
-            id: 1,
+            id: v4(),
             name: todo,
             isComplete: false,
         };

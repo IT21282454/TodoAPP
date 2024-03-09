@@ -13,7 +13,13 @@ function TodoList() {
             <div className="todo-items-wrapper">
                 {todos.map((item, index) => {
                     return (
-                        <TodoItem key={item.id} index={index + 1} todo={item} />
+                        <TodoItem
+                            todos={todos}
+                            setTodos={setTodos}
+                            key={item.id}
+                            index={index + 1}
+                            todo={item}
+                        />
                     );
                 })}
             </div>
